@@ -1,0 +1,99 @@
+<head>
+   <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>Best chat ever</title>
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper">
+          <h6 class="brand-logo center">Best chat ever</h6>
+          <div class="row hide-on-med-and-up"></div>
+          <ul class="right">
+            <li><a>{{> loginButtons align="right"}}</a></li>
+          </ul>
+        </div>
+    </nav>
+    {{> chat}}
+
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+</body>
+
+<template name="chat">
+    <div class="container">
+        <div class="row"></div>
+        {{#if currentUser}}
+        <div class="row">
+            <div class="col s12 m4 l3 collection">
+                {{> rooms}}
+            </div>
+            <div class="col s12 m8 l9">
+                {{> messages}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="trick col s12 m4 l3">
+                "magie"
+            </div>
+            <div class="col s12 m8 l9">
+                {{> input}}
+            </div>
+        </div>
+        {{else}}
+        <div class="row center">
+            <h3>Welcome to the best chat ever</h3>
+            <h6>In order to send a message, please login or create an account.</h6>
+            <p> It's just on the right corner of the page ;)</p>
+        </div>
+        {{/if}}
+
+    </div>
+</template>
+
+<template name="input">
+    <div class="input-field">
+        <div class="col s12 m7 l8">
+        <input id="msg" type="text" class="validate">
+        <label for="message">Your message</label>
+        </div>
+        <div class="col s12 m5 l4">
+        <button class="btn waves-effect waves-light sendMsg" type="submit">Send
+        <i class="material-icons right">send</i>
+        </button>
+        </div>
+    </div>
+</template>
+
+<template name="messages">
+    <h5>Room: {{roomname}}</h5>
+    <div id="messages">
+        {{#each messages}}
+            {{> message}}
+        {{/each}}
+    </div>
+</template>
+
+<template name="message">
+    <p class="user"><strong>{{user}} : </strong><i>{{text}}</i></p>
+</template>
+
+<template name="rooms">
+    <h5>Room available</h5>
+    <ul>
+    {{#each rooms}}
+        {{> room}}
+    {{/each}}
+    </ul>
+</template>
+
+<template name="room">
+    <li style="{{roomstyle}}"><a class="collection-item">{{roomname}}</a></li>
+</template>

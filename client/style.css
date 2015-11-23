@@ -1,0 +1,37 @@
+.collection {
+	border: none;
+}
+
+#messages {
+	 background-color: #ffffff; 
+	 border: 1px solid #26a69a;
+	 height: 250px; 
+	 overflow: scroll;
+	 overflow-x:hidden;
+}
+
+.user {
+	margin-left: 5px;
+}
+
+ul li {
+	cursor: pointer;
+}
+
+nav {
+	background-color: #26a69a;
+}
+
+#login-buttons .login-button, .accounts-dialog .login-button {
+	background: #26a69a;
+	border-color: #26a69a;
+}
+
+#login-buttons .login-button:hover, .accounts-dialog .login-button:hover {
+	background: #26a69a;
+	border-color: #26a69a;
+}
+
+.trick {
+	color: #ffffff;
+}
